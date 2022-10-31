@@ -1,0 +1,474 @@
+{
+	"info": {
+		"_postman_id": "0760e921-53d9-44de-b4e7-0d0c0910a54f",
+		"name": "Lavka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21165242"
+	},
+	"item": [
+		{
+			"name": "Склады",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/warehouses",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"warehouses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список наборов в карточке",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits?cardId=1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits"
+					],
+					"query": [
+						{
+							"key": "cardId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление набора с продуктами в карточку",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cardId\": 1, \n    \"name\": \"Свой\" \n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление продуктов в набор",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productsList\": [\n        {\n            \"id\": 45,\n            \"quantity\": 100500\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/2/products",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Изменение созданного набора",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Бьют ногами\",\n    \"productsList\": [\n        {\n            \"id\": 47,\n            \"quantity\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/9",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Переименование набора в карточке",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Переименованный набор\"\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/7",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление набора из карточки",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/7",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список наборов по продуктам",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": [\n        1,\n        22\n    ]\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/products/kits",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"kits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список продуктов по имени набора",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/search?name=В+космос",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "В+космос"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить все логи сервера Яндекс.Прилавок",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/logs/main",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверить стоимость доставки Яндекс.Прилавок",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<InputModel>\n    <productsCount>16</productsCount>\n    <productsWeight>7.1</productsWeight>\n    <deliveryTime>20</deliveryTime>\n</InputModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/fast-delivery/v3.1.1/calculate-delivery.xml",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"fast-delivery",
+						"v3.1.1",
+						"calculate-delivery.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверить наличие товаров на складах Яндекс.Прилавок",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\": [\n        {\n            \"id\": 5,\n            \"quantity\": 1\n        },\n        {\n            \"id\": 4,\n            \"quantity\": 5\n        }\n    ]\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/warehouses/check",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"warehouses",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Продукты на складе \"Чердак\"",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<InputModel>\n    <deliveryTime>9</deliveryTime>\n    <product id=\"4\" quantity=\"2\" />\n    <product id=\"48\" quantity=\"2\" />\n</InputModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/attic/calculate.xml",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"attic",
+						"calculate.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверить наличие продуктов на складах Яндекс.Прилавок",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\": [\n        {\n            \"id\": 40,\n            \"quantity\": 1\n        }\n    ]\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/warehouses/check",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"warehouses",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание корзины",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productsList\": [\n        {\n            \"id\": 34,\n            \"quantity\": 1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление продуктов в корзину",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productsList\": [\n        {\n            \"id\": 6,\n            \"quantity\": 1\n\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/10",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение продуктов в корзине",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/10",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление корзины",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/10",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
