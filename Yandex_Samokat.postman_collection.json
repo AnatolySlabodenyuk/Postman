@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "afb142ea-18ca-4536-9dc0-5eb8e2ae2c0e",
+		"name": "Samokat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21165242"
+	},
+	"item": [
+		{
+			"name": "Создание курьера",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"Timee\",\n    \"password\": \"1234\",\n    \"firstName\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/courier",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id курьера",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"Timee\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/courier/login",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание заказа",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Просрочка<12\",\n    \"lastName\": \"Князев\",\n    \"address\": \"Просрочка1984\",\n    \"metroStation\": 5,\n    \"phone\": \"+7 800 355 35 39\",\n    \"rentTime\": 2,\n    \"deliveryDate\": \"2022-08-18\",\n    \"comment\": \"Где самокат?\",\n    \"color\": [\n        \"BLACK\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/orders",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение инф заказа по его номеру",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/orders/track?t=836256",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"track"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "836256"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Принять заказ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/orders/accept/:id?courierId=1",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"accept",
+						":id"
+					],
+					"query": [
+						{
+							"key": "courierId",
+							"value": "1"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление курьера",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/courier/:id",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список заказов курьера",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/courier/:id/ordersCount",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						":id",
+						"ordersCount"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Завершить заказ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/orders/finish/:id",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"finish",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Поиск метро",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_samokat}}/api/v1/stations/search?s=ролет",
+					"host": [
+						"{{server_samokat}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"stations",
+						"search"
+					],
+					"query": [
+						{
+							"key": "s",
+							"value": "ролет"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
